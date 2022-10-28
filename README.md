@@ -11,7 +11,7 @@ Contents:
   - Demo UI 
 - Preconfigured Fleet bundles for
   - Akri
-  - Neuvector
+  - NeuVector
   - Demo UI
   - Redis
 
@@ -27,7 +27,7 @@ To perform this demo, you need:
 Note: We did run into some problems with passing a USB camera through when using a Virtual Machine.
 
 
-# Demo Preperation
+# Demo Preparation
 
 This demo showcases how little work it is to onboard new clusters and their peripherals when managing remote locations. Due to this, there is some initial setup required for both the new Elemental operator as well as Fleet. Once this setup is done, replicating across multiple nodes or clusters is trivial. 
 
@@ -36,7 +36,7 @@ This demo showcases how little work it is to onboard new clusters and their peri
 
 To start off, we need to install the elemental operator and build a bootstrap iso file. A longer write up of this can be found [here](https://github.com/rancher-sandbox/rancher-node-image/blob/main/getting-started.md).
 
-Note: Through this guide, I will assume that you current kubeconfig and context are pointing to the cluster running Rancher Manager.
+Note: Through this guide, I will assume that your current kubeconfig and context are pointing to the cluster running Rancher Manager.
 
 ### Operator install and config
 
@@ -158,7 +158,7 @@ Note: There will be a UI built to make this much simpler later this year.
 
 ### Create Cluster
 
-We can create a blank clsuter with the following command:
+We can create a blank cluster with the following command:
 
 ```
 cat <<EOF | kubectl apply -f -
@@ -198,7 +198,7 @@ This will trigger the bootstrapped node to be provisioned as the control plane o
 
 ## Plug in Camera
 
-Once your cluster comes up, Fleet will autoamtically schedule the workload to it. This workload includes Akri which knows how to discover devices. With the configuration specified in this git repo, it will detect USB devices that can hook into the v4l2 engine and have the `:discover:` capability set. A basic webcam should work just fine!
+Once your cluster comes up, Fleet will automatically schedule the workload to it. This workload includes Akri which knows how to discover devices. With the configuration specified in this git repo, it will detect USB devices that can hook into the v4l2 engine and have the `:discover:` capability set. A basic webcam should work just fine!
 
 To see the demo in action, click on the `edge-demo` cluster then Workload and Pods. Under the `Akri` namespace, you should see a few pods already. 
 
